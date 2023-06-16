@@ -5,3 +5,14 @@
 
 <p>{{ message }}</p>
 <p> {{ fromChildOutput }} </p>
+
+<p [class.text-red]="textIsRed"> Class Binding </p>
+<p [style.color]="textIsRed ? 'red' : 'blue'">Style Binding</p>
+<button (click)="eventBindingClick()">Click Me</button>
+
+<input type="text" (keyup)="eventKeyup($event)">
+<span>{{ inputText }}</span>
+
+<input type="text" (keyup.enter)="eventFiltering()">
+
+<img [src]="imgUrl" alt="">
