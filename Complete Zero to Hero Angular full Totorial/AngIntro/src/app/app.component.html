@@ -10,9 +10,14 @@
 <p [style.color]="textIsRed ? 'red' : 'blue'">Style Binding</p>
 <button (click)="eventBindingClick()">Click Me</button>
 
-<input type="text" (keyup)="eventKeyup($event)">
+<input type="text" (keyup)="eventKeyup($event)" placeholder="eventKeyup">
 <span>{{ inputText }}</span>
 
-<input type="text" (keyup.enter)="eventFiltering()">
+<input type="text" (keyup.enter)="eventFiltering()" placeholder="eventFiltering">
+
+<input type="text" (keyup.enter)="eventFilteringUsername(username.value)" #username placeholder="eventFilteringUsername">
+
+<input type="text" [(ngModel)]="twoWayDataBindingText" placeholder="twoWayDataBinding">
+<span>{{ twoWayDataBindingText }}</span>
 
 <img [src]="imgUrl" alt="">

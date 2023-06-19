@@ -15,6 +15,7 @@ export class AppComponent implements AfterViewInit {
   imgUrl:string = 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=40'
   textIsRed:boolean = true;
   inputText:string | null = 'Valor inicial';
+  twoWayDataBindingText!:string;
 
   @ViewChild(PostComponent) childComponent:any;
 
@@ -36,5 +37,9 @@ export class AppComponent implements AfterViewInit {
 
   eventFiltering(){
     console.log('Enter key pressed');
+  }
+
+  eventFilteringUsername(username: string){
+    console.log(username);
   }
 }
