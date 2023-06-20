@@ -39,7 +39,7 @@
   </ul>
 </div> -->
 
-<div>
+<!-- <div>
   <h1>*ngIf -> Structural Directive</h1>
 
   <button (click)="addNewNgIf()">Add New Data</button>
@@ -54,4 +54,30 @@
   <ng-template #elseBlock>
     <p>There is no data to fetch ...</p>
   </ng-template>
+</div> -->
+
+<!-- <div>
+  <h1>*ngSwitchCase -> Structural Directive</h1>
+
+  <div>
+    <button (click)="handleOnClickNgSwitchCase('step 1')">Step 1</button>
+    <button (click)="handleOnClickNgSwitchCase('step 2')">Step 2</button>
+    <button (click)="handleOnClickNgSwitchCase('step 3')">Step 3</button>
+  </div>
+
+  <div [ngSwitch]="stepForm">
+    <div *ngSwitchCase="'step 1'">Step 1 Form</div>
+    <div *ngSwitchCase="'step 2'">Step 2 Form</div>
+    <div *ngSwitchCase="'step 3'">Step 3 Form</div>
+    <div *ngSwitchDefault>Click in button</div>
+  </div>
+</div> -->
+
+<div>
+  <h1>*ngStyle -> Attribute Directive</h1>
+
+  <h2 [ngStyle]="{
+    'color': isActiveNgStyle ? 'red' : 'blue',
+    'text-transform': isActiveNgStyle ? 'uppercase' : 'lowercase'
+  }">Angular Course</h2>
 </div>

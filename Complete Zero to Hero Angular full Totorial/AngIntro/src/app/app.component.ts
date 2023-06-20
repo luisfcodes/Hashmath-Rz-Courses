@@ -35,6 +35,12 @@ export class AppComponent implements AfterViewInit {
   //*ngIf -> Structural Directive
   emptyArray:Array<Post> = [];
 
+  //*ngSwitchCase -> Structural Directive
+  stepForm!:string
+
+  //ngStyle -> Attribute Directive
+  isActiveNgStyle:boolean = true;
+
   @ViewChild(PostComponent) childComponent:any;
 
   ngAfterViewInit() {
@@ -71,11 +77,16 @@ export class AppComponent implements AfterViewInit {
   // }
 
   //*ngIf -> Structural Directive
-  addNewNgIf(){
-    this.emptyArray.push({ id: this.emptyArray.length + 1, postTitle: `Post ${this.emptyArray.length + 1}` });
-  }
+  // addNewNgIf(){
+  //   this.emptyArray.push({ id: this.emptyArray.length + 1, postTitle: `Post ${this.emptyArray.length + 1}` });
+  // }
 
-  removeItemNgIf(id: number){
-    this.emptyArray = this.emptyArray.filter((post) => post.id !== id);
+  // removeItemNgIf(id: number){
+  //   this.emptyArray = this.emptyArray.filter((post) => post.id !== id);
+  // }
+
+  //*ngSwitchCase -> Structural Directive
+  handleOnClickNgSwitchCase(step: string){
+    this.stepForm = step;
   }
 }
