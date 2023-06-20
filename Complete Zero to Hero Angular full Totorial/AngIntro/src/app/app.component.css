@@ -6,3 +6,14 @@ img, button, input {
   display: block;
   margin-top: 1rem;
 }
+
+.objArray li {
+  padding: .25rem 0;
+}
+
+.objArray li button {
+  margin-top: 0;
+  display: inline-block;
+  margin-left: .5rem;
+  cursor: pointer;
+}
