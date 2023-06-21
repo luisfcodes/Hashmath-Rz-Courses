@@ -41,6 +41,9 @@ export class AppComponent implements AfterViewInit {
   //ngStyle -> Attribute Directive
   isActiveNgStyle:boolean = true;
 
+  //ngClass -> Attribute Directive
+  isActiveNgClass:boolean = true;
+
   @ViewChild(PostComponent) childComponent:any;
 
   ngAfterViewInit() {
