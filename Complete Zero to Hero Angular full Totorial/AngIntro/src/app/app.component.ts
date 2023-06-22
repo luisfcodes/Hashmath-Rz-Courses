@@ -44,6 +44,14 @@ export class AppComponent implements AfterViewInit {
   //ngClass -> Attribute Directive
   isActiveNgClass:boolean = true;
 
+  //uppercase and lowercase pipe
+  textUppercase:string = 'Texto em uppercase';
+  textLowercase:string = 'TEXTO EM LOWERCASE';
+
+  //number and decimal pipe
+  numberPipe:number = 234566;
+  decimalPipe:number = 1.234566;
+
   @ViewChild(PostComponent) childComponent:any;
 
   ngAfterViewInit() {
