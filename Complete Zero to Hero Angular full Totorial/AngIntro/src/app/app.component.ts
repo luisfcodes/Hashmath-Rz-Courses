@@ -52,6 +52,18 @@ export class AppComponent implements AfterViewInit {
   numberPipe:number = 234566;
   decimalPipe:number = 1.234566;
 
+  //currency pipe
+  currencyPipe:number = 1234;
+
+  //date pipe
+  datePipe:Date = new Date();
+
+  //json pipe
+  jsonPipe:object = { name: 'John', age: 30, city: 'New York' };
+
+  //percent pipe
+  percentPipe:number = 0.5;
+
   @ViewChild(PostComponent) childComponent:any;
 
   ngAfterViewInit() {
