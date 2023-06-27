@@ -64,6 +64,19 @@ export class AppComponent implements AfterViewInit {
   //percent pipe
   percentPipe:number = 0.5;
 
+  //slice pipe
+  slicePipe:Array<string> = ['Post 1', 'Post 2', 'Post 3', 'Post 4', 'Post 5']
+
+  //custom pipe from scratch
+  userDetails:{ name: string; city: string; countryCode: string } = {
+    name: "John",
+    city: "New York",
+    countryCode: "US"
+  }
+
+  //custom pipe with arguments
+  dummyText:string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.';
+
   @ViewChild(PostComponent) childComponent:any;
 
   ngAfterViewInit() {
