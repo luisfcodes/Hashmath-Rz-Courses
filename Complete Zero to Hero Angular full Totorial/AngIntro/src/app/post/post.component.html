@@ -7,3 +7,13 @@
 <app-post-list [fromPost]="postMessage"></app-post-list>
 
 <button (click)="sendMessage()">Disparar Evento</button>
+
+<hr>
+
+<div>
+  <button (click)="addNewData()">Add New</button>
+
+  <ul>
+    <li *ngFor="let item of postList">{{ item.postTitle }}</li>
+  </ul>
+</div>
