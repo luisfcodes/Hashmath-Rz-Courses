@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { AppendPipe } from './Pipes/append.pipe';
 import { AppendCLIPipe } from './Pipes/append-cli.pipe';
 import { SummaryPipe } from './Pipes/summary.pipe';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SummaryPipe } from './Pipes/summary.pipe';
     PostListComponent,
     AppendPipe,
     AppendCLIPipe,
-    SummaryPipe
+    SummaryPipe,
+    FormComponent
   ],
   imports: [
     BrowserModule,
