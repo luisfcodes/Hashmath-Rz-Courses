@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm, NgModel, FormGroup, FormControl, Validators } from '@angular/forms';
+import { NgForm, NgModel, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +11,14 @@ export class FormComponent {
   form: FormGroup = new FormGroup({
     fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    address: new FormControl('', [Validators.required, Validators.minLength(3)]),
+
+    contactDetails: new FormGroup({
+      address: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      shippingAddress: new FormControl('', Validators.required),
+      contactNo: new FormControl('', Validators.required),
+    }),
+
+    skills: new FormArray([])
   })
 
   get fullName(): any{
@@ -23,7 +30,29 @@ export class FormComponent {
   }
 
   get address(): any{
-    return this.form.get('address');
+    return this.form.get('contactDetails.address');
+  }
+
+  get shippingAddress(): any{
+    return this.form.get('contactDetails.shippingAddress');
+  }
+
+  get contactNo(): any{
+    return this.form.get('contactDetails.contactNo');
+  }
+
+  get skills(): any{
+    return this.form.get('skills') as FormArray;
+  }
+
+  addSkills(skill: HTMLInputElement){
+    this.skills.push(new FormControl(skill.value));
+    skill.value = '';
+  }
+
+  removeSkill(skill: FormControl){
+    let index = this.skills.controls.indexOf(skill);
+    this.skills.removeAt(index);
   }
 
   onSubmitReactiveForm(){
