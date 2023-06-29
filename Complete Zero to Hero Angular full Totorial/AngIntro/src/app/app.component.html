@@ -167,8 +167,19 @@
   <app-form></app-form>
 </div> -->
 
-<div>
+<!-- <div>
   <h1 class="text-center">form validation custom</h1>
 
   <app-form-validators></app-form-validators>
+</div> -->
+
+<div>
+  <h1 class="text-center">Angular Routing</h1>
+
+  <div class="mt-5">
+    <button routerLink="/dashboard" routerLinkActive="active">Dashboard</button>
+    <button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</button>
+
+    <router-outlet></router-outlet>
+  </div>
 </div>
