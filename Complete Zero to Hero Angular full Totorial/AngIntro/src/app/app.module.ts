@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { PostListComponent } from './post-list/post-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppendPipe } from './Pipes/append.pipe';
 import { AppendCLIPipe } from './Pipes/append-cli.pipe';
 import { SummaryPipe } from './Pipes/summary.pipe';
@@ -27,6 +27,7 @@ import { FormComponent } from './components/form/form.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

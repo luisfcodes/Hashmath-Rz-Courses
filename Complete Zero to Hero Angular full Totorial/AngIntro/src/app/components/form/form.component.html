@@ -1,25 +1,97 @@
 <div class="container mt-5">
   <div class="form-area">
-    <form #f = "ngForm" (ngSubmit)="onSubmit(f)" >
+    <!-- <form #f = "ngForm" (ngSubmit)="onSubmit(f)" >
       <div class="form-group">
         <label>Nome completo</label>
-        <input type="text" placeholder="Nome completo" class="form-control" [ngClass]="fullName.invalid && fullName.touched ? 'is-invalid' : ''" name="fullName" ngModel #fullName = 'ngModel' (change)="getValue(fullName)" required>
+        <input
+          type="text"
+          placeholder="Nome completo"
+          class="form-control"
+          [ngClass]="fullName.invalid && fullName.touched ? 'is-invalid' : ''"
+          name="fullName"
+          ngModel
+          #fullName = 'ngModel'
+          (change)="getValue(fullName)"
+          required
+        >
         <p class="alert alert-danger mt-1" *ngIf="fullName.invalid && fullName.touched">Nome é obrigatório!</p>
       </div>
 
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="Email" class="form-control" [ngClass]="email.invalid && email.touched ? 'is-invalid' : ''" name="email" ngModel #email = 'ngModel' required>
+        <input
+          type="email"
+          placeholder="Email"
+          class="form-control"
+          [ngClass]="email.invalid && email.touched ? 'is-invalid' : ''"
+          name="email"
+          ngModel
+          #email = 'ngModel'
+          required
+        >
         <p class="alert alert-danger mt-1" *ngIf="email.invalid && email.touched">Email é obrigatório!</p>
       </div>
 
       <div class="form-group">
         <label>Endereço</label>
-        <textarea cols="30" rows="10" placeholder="Address" class="form-control" [ngClass]="address.invalid && address.touched ? 'is-invalid' : ''" name="address" ngModel #address = 'ngModel' required></textarea>
+        <textarea
+          cols="30"
+          rows="10"
+          placeholder="Address"
+          class="form-control"
+          [ngClass]="address.invalid && address.touched ? 'is-invalid' : ''"
+          name="address"
+          ngModel
+          #address = 'ngModel'
+          required
+        ></textarea>
         <p class="alert alert-danger mt-1" *ngIf="address.invalid && address.touched">Endereço é obrigatório!</p>
       </div>
 
       <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+    </form> -->
+
+    <form [formGroup]="form" (ngSubmit)="onSubmitReactiveForm()">
+      <div class="form-group">
+        <label>Nome completo</label>
+        <input
+          type="text"
+          placeholder="Nome completo"
+          class="form-control"
+          name="fullName"
+          formControlName="fullName"
+        >
+        <p class="alert alert-danger" *ngIf="fullName?.errors?.required && fullName.touched">Nome é obrigatório!</p>
+        <p class="alert alert-danger" *ngIf="fullName?.errors?.minlength && fullName.touched">Minímo 3 caracteres!</p>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="Email"
+          class="form-control"
+          name="email"
+          formControlName="email"
+        >
+        <p class="alert alert-danger" *ngIf="email?.errors?.required && email.touched">Email é obrigatório!</p>
+        <p class="alert alert-danger" *ngIf="email?.errors?.email && email.touched">Email inválido!</p>
+      </div>
+
+      <div class="form-group">
+        <label>Endereço</label>
+        <textarea
+          cols="30"
+          rows="10"
+          placeholder="Address"
+          class="form-control"
+          name="address"
+          formControlName="address"
+        ></textarea>
+        <p class="alert alert-danger" *ngIf="address?.errors?.required && address.touched">Endereço é obrigatório!</p>
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
     </form>
   </div>
 </div>
