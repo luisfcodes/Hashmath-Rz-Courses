@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="fc">
+    <div class="form-group">
+      <label>Usuário</label>
+      <input type="text" class="from-control" formControlName="username">
+
+      <p class="alert alert-danger" *ngIf="fc.username?.errors?.['required'] && fc.username.touched">Usuário é obrigatório!</p>
+      <p class="alert alert-danger" *ngIf="fc.username?.errors?.['minlength'] && fc.username.touched">Minímo 3 caracteres!</p>
+      <p class="alert alert-danger" *ngIf="fc.username?.errors?.['noSpaceValidator'] && fc.username.touched">Nome do usuário não deve conter espaço!</p>
+    </div>
+
+    <div class="form-group">
+      <label>Senha</label>
+      <input type="password" class="from-control" formControlName="password">
+
+      <p class="alert alert-danger" *ngIf="fc.password?.errors?.['required'] && fc.password.touched">Senha é obrigatória!</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Entrar</button>
+  </form>
+</div>

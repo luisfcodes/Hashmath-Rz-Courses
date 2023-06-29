@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm, NgModel, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { NgForm, NgModel, FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -8,18 +8,31 @@ import { NgForm, NgModel, FormGroup, FormControl, Validators, FormArray } from '
 })
 export class FormComponent {
 
-  form: FormGroup = new FormGroup({
-    fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+  // form: FormGroup = new FormGroup({
+  //   fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  //   email: new FormControl('', [Validators.required, Validators.email]),
 
-    contactDetails: new FormGroup({
-      address: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      shippingAddress: new FormControl('', Validators.required),
-      contactNo: new FormControl('', Validators.required),
+  //   contactDetails: new FormGroup({
+  //     address: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  //     shippingAddress: new FormControl('', Validators.required),
+  //     contactNo: new FormControl('', Validators.required),
+  //   }),
+
+  //   skills: new FormArray([])
+  // })
+
+  form: FormGroup = this.fb.group({
+    fullName: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    contactDetails: this.fb.group({
+      address: ['', [Validators.required, Validators.minLength(3)]],
+      shippingAddress: ['', Validators.required],
+      contactNo: ['', Validators.required],
     }),
-
-    skills: new FormArray([])
+    skills: this.fb.array([])
   })
+
+  constructor(private fb: FormBuilder){}
 
   get fullName(): any{
     return this.form.get('fullName');

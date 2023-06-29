@@ -11,6 +11,7 @@ import { AppendPipe } from './Pipes/append.pipe';
 import { AppendCLIPipe } from './Pipes/append-cli.pipe';
 import { SummaryPipe } from './Pipes/summary.pipe';
 import { FormComponent } from './components/form/form.component';
+import { FormValidatorsComponent } from './components/form-validators/form-validators.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormComponent } from './components/form/form.component';
     AppendPipe,
     AppendCLIPipe,
     SummaryPipe,
-    FormComponent
+    FormComponent,
+    FormValidatorsComponent
   ],
   imports: [
     BrowserModule,
