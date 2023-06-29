@@ -1,2 +1,7 @@
 <h1>Dashboard</h1>
 
+<div *ngFor="let post of posts">
+  <h1>{{ post.title }}</h1>
+  <button [routerLink]="['/dashboard/post', post.id]" [queryParams]="{test:1, test2:2}">View Content</button>
+  <hr>
+</div>

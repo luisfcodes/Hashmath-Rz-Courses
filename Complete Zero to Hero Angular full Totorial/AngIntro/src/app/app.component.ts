@@ -1,5 +1,6 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { PostComponent } from './post/post.component';
+import { Router } from '@angular/router';
 
 interface Post {
   id: number;
@@ -77,6 +78,8 @@ export class AppComponent implements AfterViewInit {
   //custom pipe with arguments
   dummyText:string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.';
 
+  constructor(private router: Router) { }
+
   @ViewChild(PostComponent) childComponent:any;
 
   ngAfterViewInit() {
@@ -124,5 +127,9 @@ export class AppComponent implements AfterViewInit {
   //*ngSwitchCase -> Structural Directive
   handleOnClickNgSwitchCase(step: string){
     this.stepForm = step;
+  }
+
+  onSubmit(){
+    this.router.navigate(['/dashboard'])
   }
 }

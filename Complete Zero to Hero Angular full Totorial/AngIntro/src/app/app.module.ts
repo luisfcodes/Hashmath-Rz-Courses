@@ -12,8 +12,9 @@ import { SummaryPipe } from './Pipes/summary.pipe';
 import { FormComponent } from './components/form/form.component';
 import { FormValidatorsComponent } from './components/form-validators/form-validators.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { SinglePostComponent } from './components/dashboard/single-post/single-post.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,16 +28,14 @@ import { HomeComponent } from './components/home/home.component';
     FormComponent,
     FormValidatorsComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'dashboard', component: DashboardComponent },
-    ])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
