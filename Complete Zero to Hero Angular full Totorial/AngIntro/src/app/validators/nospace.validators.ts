@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
-export class noSpace {
+export class NoSpace {
 
   static noSpaceValidations(control: AbstractControl): ValidationErrors | null {
     let controlValue = control.value as string;
