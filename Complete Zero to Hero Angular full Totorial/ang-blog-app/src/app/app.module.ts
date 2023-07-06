@@ -15,6 +15,7 @@ import { SubscriptionFormComponent } from './components/subscription-form/subscr
 import { CommentFormComponent } from './components/comments/comment-form/comment-form.component';
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { PostCardComponent } from './layouts/post-card/post-card.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     CommentFormComponent,
     CommentListComponent,
     AboutUsComponent,
+    PostCardComponent,
   ],
   imports: [
     BrowserModule,
